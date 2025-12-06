@@ -120,14 +120,14 @@ export default function MainContainer({ onAcertou, onErrou, onPassar }: MainCont
         }
     }
     return (
-        <div className="bg-zinc-100 w-full h-80 rounded-lg flex-col">
-            <div className="flex justify-around gap-x-2 p-2">
+        <div className="bg-zinc-100 w-full lg:w-2/3 h-80 rounded-lg flex-col lg:py-2">
+            <div className="flex justify-around gap-x-2 p-2 lg:gap-x-5 lg:px-6">
                 <FlipCard emoji={Cards[indiceAtual].emojis[0]} isFlipped={flippedStates[0]} />
                 <FlipCard emoji={Cards[indiceAtual].emojis[1]} isFlipped={flippedStates[1]} />
                 <FlipCard emoji={Cards[indiceAtual].emojis[2]} isFlipped={flippedStates[2]} />
 
             </div>
-            <div className="px-2 mt-4">
+            <div className="px-2 mt-4 lg:px-6">
                 <input
                     type="text"
                     placeholder="Digite seu chute"
@@ -136,7 +136,7 @@ export default function MainContainer({ onAcertou, onErrou, onPassar }: MainCont
                     onChange={atualizaSugestoes}
                 />
                 {sugestoes.length > 0 && (
-                    <ul className="bg-white border rounded shadow mt-1 absolute z-10 w-4/5">
+                    <ul className="bg-white border rounded shadow mt-1 z-10 w-full">
                         {sugestoes.map((item, idx) => (
                             <li
                                 key={idx}
@@ -155,7 +155,7 @@ export default function MainContainer({ onAcertou, onErrou, onPassar }: MainCont
                     </div>
                 )}
             </div>
-            <div className="flex justify-between items-center p-2 mt-4">
+            <div className="flex justify-between items-center p-2 mt-4 lg:px-6">
                 <button
                     onClick={verificarChute}
                     disabled={!cartaValida}
@@ -170,17 +170,17 @@ export default function MainContainer({ onAcertou, onErrou, onPassar }: MainCont
                     <Lightbulb className="size-4 mr-2" /> Dica (-20 pts)
                 </button>
             </div>
-            {resultado && (
+            <div className="flex justify-center ">
+                <button className="hover:bg-zinc-200 w-1/4 py-2 rounded-sm" onClick={passarCarta}>Give Up</button>
+            </div>
+            <div className="lg:px-6">
+                {resultado && (
                 <div className={`text-center p-2 mt-2 rounded-md text-white font-semibold ${resultado.includes("Acertou") ? "bg-green-600" : "bg-red-600"}`}>
                     {resultado}
                 </div>
             )}
-            <div className="flex justify-center ">
-                <button className="hover:bg-zinc-200 w-1/4 py-2 rounded-sm" onClick={passarCarta}>Give Up</button>
-            </div>
-            <div>
                 {chutesErrados.length > 0 && (
-                <ul className="flex flex-col gap-2 justify-center mt-8">
+                <ul className="flex flex-col gap-2 justify-center mt-8 lg:px-6 pb-5">
                     {chutesErrados.map((item, idx) => (
                         <li
                             key={idx}

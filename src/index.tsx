@@ -11,11 +11,11 @@ export default function App() {
     const totalRodadas = 10;
 
     return (
-        <div className='absolute inset-0 bg-[url("https://images.alphacoders.com/127/thumb-1920-1270400.jpg")] bg-cover bg-center bg-norepeat w-screen h-screen'>
-            <div className='absolute inset-0 bg-black opacity-50' />
+        <div className='fixed inset-0 bg-[url("https://images.alphacoders.com/127/thumb-1920-1270400.jpg")] bg-cover bg-center w-full min-h-screen overflow-x-hidden'>
+            <div className='fixed inset-0 bg-black opacity-50 w-full min-h-screen overflow-x-hidden' />
             <div className='relative z-10'>
                 {finalizado ? (
-                    <div className="flex flex-col items-center h-screen justify-center p-5 ">
+                    <div className="flex flex-col items-center justify-center p-5 ">
                         <div className='bg-zinc-200 rounded-xl h-2/3 w-full flex flex-col items-center p-6 shadow-lg'>
                             <Trophy className="text-yellow-500 size-12 mb-4" />
                             <h1 className="text-3xl font-bold mb-4">{pontuacao > 5 ? "Parabéns!" : "Game Over!"}</h1>
@@ -36,15 +36,15 @@ export default function App() {
                 ) : (
                     <>
                         <div className='flex justify-center items-center p-5'>
-                            <p className='text-zinc-100 text-lg font-bold'>👑 Descubra a carta do Clash Royale 👑</p>
+                            <h1 className='text-zinc-100 font-bold md:text-xl lg:text-2xl'>👑Descubra a carta do Clash Royale👑</h1>
                         </div>
                         <div className='flex justify-center items-center'>
-                            <p className='text-zinc-100'>Descubra qual é a carta através dos emojis.</p>
+                            <h2 className='text-zinc-100 md:text-xl lg:text-2xl'>Descubra qual é a carta através dos emojis.</h2>
                         </div>
-                        <div className='px-6 py-3'>
+                        <div className='px-6 py-3 md:px-50 lg:px-50 lg:flex lg:items-center lg:justify-center'>
                             <ScoreContainer score={pontuacao} progress={rodadaAtual} total={totalRodadas} />
                         </div>
-                        <div className='px-6 py-3'>
+                        <div className='px-6 py-3 md:px-50 lg:px-50 lg:flex lg:items-center lg:justify-center'>
                             <MainContainer
                                 onAcertou={() => {
                                     setPontuacao((p) => p + 100)

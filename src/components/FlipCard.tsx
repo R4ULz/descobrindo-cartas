@@ -14,7 +14,7 @@ const FlipCard = forwardRef(({ emoji, isFlipped = false }: FlipCardProps, ref) =
 
     return (
         <div 
-            className="h-28 w-1/3 cursor-pointer"
+            className="h-28 w-1/3"
             style={{ perspective: "1000px" }}
         >
             <div
