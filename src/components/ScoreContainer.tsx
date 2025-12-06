@@ -1,7 +1,13 @@
 import {Trophy, Target} from 'lucide-react'
 import {Line} from 'rc-progress'
 
-export default function ScoreContainer(){
+interface ScoreContainerProps{
+    score: number;
+    progress: number;
+    total: number;
+}
+
+export default function ScoreContainer({score, progress, total}: ScoreContainerProps){
     return(
         <div className="bg-zinc-100 w-full h-28 rounded-lg flex flex-col">
             <div className='flex justify-between '>

@@ -1,17 +1,20 @@
 import { CircleQuestionMark } from "lucide-react";
-import { useState } from "react";
+import { useImperativeHandle, forwardRef } from "react";
 
 interface FlipCardProps{
     emoji: string;
     isFlipped?: boolean;
 }
 
-export default function FlipCard({emoji, isFlipped = false}: FlipCardProps){
-    const [isFlippedState, setIsFlipped] = useState(isFlipped);
-    return(
+const FlipCard = forwardRef(({ emoji, isFlipped = false }: FlipCardProps, ref) => {
+    useImperativeHandle(ref, () => ({
+        flip: () => {}, // Não faz nada, pois o controle é externo
+        reset: () => {} // Não faz nada, pois o controle é externo
+    }));
+
+    return (
         <div 
             className="h-28 w-1/3 cursor-pointer"
-            onClick={() => setIsFlipped(!isFlippedState)}
             style={{ perspective: "1000px" }}
         >
             <div
@@ -41,6 +44,9 @@ export default function FlipCard({emoji, isFlipped = false}: FlipCardProps){
                 </div>
             </div>
         </div>
-    )
-    
-}
+    );
+});
+
+FlipCard.displayName = "FlipCard"
+
+export default FlipCard
