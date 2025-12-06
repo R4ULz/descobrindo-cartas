@@ -8,8 +8,8 @@ interface FlipCardProps{
 
 const FlipCard = forwardRef(({ emoji, isFlipped = false }: FlipCardProps, ref) => {
     useImperativeHandle(ref, () => ({
-        flip: () => {}, // Não faz nada, pois o controle é externo
-        reset: () => {} // Não faz nada, pois o controle é externo
+        flip: () => {},
+        reset: () => {} 
     }));
 
     return (

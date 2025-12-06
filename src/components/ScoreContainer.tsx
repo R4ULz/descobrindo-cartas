@@ -8,6 +8,8 @@ interface ScoreContainerProps{
 }
 
 export default function ScoreContainer({score, progress, total}: ScoreContainerProps){
+    const percent = (progress / total) * 100;
+
     return(
         <div className="bg-zinc-100 w-full h-28 rounded-lg flex flex-col">
             <div className='flex justify-between '>
@@ -15,19 +17,19 @@ export default function ScoreContainer({score, progress, total}: ScoreContainerP
                     <Trophy className="text-amber-400"/>
                     <div className="p-2">
                         <p className="text-gray-800 ">Pontuação </p>
-                        <p className="text-gray-950 font-bold flex text-lg">0 </p>
+                        <p className="text-gray-950 font-bold flex text-lg">{score} </p>
                     </div>
                 </div>
                 <div className="flex items-center p-2">
                     <Target className="text-blue-600"/>
                     <div className="p-2">
                         <p className="text-gray-800 ">Progresso </p>
-                        <p className="text-gray-950 font-bold flex text-lg">1/10 </p>
+                        <p className="text-gray-950 font-bold flex text-lg">{progress}/{total} </p>
                     </div>
                 </div>
             </div>
             <div className='w-full px-2'>
-                <Line percent={10} strokeWidth={4} strokeColor="#6C63FF"    />
+                <Line percent={percent} strokeWidth={4} strokeColor="#6C63FF"    />
             </div>
         </div>
     )
