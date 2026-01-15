@@ -1,14 +1,13 @@
-import { Lightbulb } from "lucide-react"
+
 import { useState, useEffect } from "react"
 import FlipCard from "./FlipCard"
-import Cards from "../reposity/ClashCards"
+import Cards from "../repository/ClashCards"
 
 
 
 interface MainContainerProps {
     onAcertou: () => void;
     onErrou: () => void;
-    onDica?: () => void;
     onPassar: () => void;
 }
 
@@ -155,23 +154,19 @@ export default function MainContainer({ onAcertou, onErrou, onPassar }: MainCont
                     </div>
                 )}
             </div>
-            <div className="flex justify-between items-center p-2 mt-4 lg:px-6">
+            <div className="flex justify-center items-center p-2 mt-4 lg:px-6">
                 <button
                     onClick={verificarChute}
                     disabled={!cartaValida}
-                    className={`bg-blue-600 text-zinc-100 p-2 w-1/2 rounded-md hover:bg-blue-700 transition-colors md:w-2/3
+                    className={`bg-blue-600 text-zinc-100 p-2 rounded-md hover:bg-blue-700 transition-colors w-1/4
                         ${!cartaValida ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"}`}
                 >
                     Chutar
                 </button>
-                <button
-                    className="flex items-center justify-center bg-gray-600 text-zinc-100 p-2 w-1/2 rounded-md hover:bg-gray-700 transition-colors ml-2 md:w-1/3"
-                >
-                    <Lightbulb className="size-4 mr-2" /> Dica (-20 pts)
-                </button>
+               
             </div>
             <div className="flex justify-center ">
-                <button className="hover:bg-zinc-200 w-1/4 py-2 rounded-sm" onClick={passarCarta}>Give Up</button>
+                <button className="hover:bg-zinc-200 w-1/4 py-2 rounded-sm" onClick={passarCarta}>Passar</button>
             </div>
             <div className="lg:px-6">
                 {resultado && (
