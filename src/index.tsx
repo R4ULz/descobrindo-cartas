@@ -59,9 +59,6 @@ export default function App() {
                                 onErrou={() => {
                                     setPontuacao((p) => (p > 0 ? p - 10 : 0))
                                 }}
-                                onDica={() => {
-                                    setPontuacao((p) => (p > 0 ? p - 20 : 0))
-                                }}
                                 onPassar={() => {
                                     setRodadaAtual((r) => {
                                         if (r + 1 > totalRodadas) {
